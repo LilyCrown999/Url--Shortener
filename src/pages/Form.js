@@ -5,6 +5,8 @@
  const Form = () => {
 
     const Href = "https://uriurl.herokuapp.com/";
+    // const href = "http://localhost:5500/";
+
 
     const [ url, setUrl] = useState('')
     const [ name, setName] = useState('')
@@ -23,8 +25,13 @@
     function set(){
         return post()
     }
+
+
      
    async function post(){
+
+        let pageUrl =  window.location.href;
+
 
         const requestOptions = {
             method: 'POST',
@@ -35,7 +42,7 @@
         const response = await fetch(`${Href}`, requestOptions);
         const data = await response.json();
         setData(data.alias)
-        setUri(data.uri)
+        setUri(pageUrl)
         setMsg("Your link : ")
 
     }
@@ -48,6 +55,9 @@
         if (e.code === 'Enter' || e.code === 'Submit')
           e.preventDefault();
     };
+
+
+
 
    return (
        <>
@@ -93,6 +103,8 @@
                 className="flex p-1 mt-1 mx-2 sm:mx-4 sm:mt-4 border-black items-center justify-between"
             >
                 <span className="font-mono text-2xl "> Url Shortener</span>
+                
+                
             </div>
             <div className="ml-2 mr-2 mt-3 sm:mx-6 sm:mt-8">
 
@@ -107,10 +119,10 @@
                 </a>
                 </p>
              </div>   
-            <div className="ml-2 mr-2 mt-3 sm:mx-6 sm:mt-8">
-                <h1 className="text-xl text-gray-600 sm:text-md font-bold">
+             <span className="ml-2 mr-2 mt-3 sm:mx-6 sm:mt-8 text-xl m-3 text-gray-600 font-mono">
                    Shorten your url link !
-                </h1>
+                </span>
+            <div className="ml-2 mr-2 mt-3 sm:mx-6 sm:mt-8">
                 <p className="text-xs sm:text-sm text-gray-400 mt-2">
                     Takes less than 10 minutes to fill out all the information needed to shorten your generate your url shortlink.
                 </p>

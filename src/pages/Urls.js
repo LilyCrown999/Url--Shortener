@@ -18,24 +18,18 @@ const Urls = () => {
 
             }, [])
 
-
-
-            
-                      {/* <div>{j.name} <br /> 
-                      {j.alias} <br /> 
-                      {j.uri + j.alias} <br />
-                        {j._id} */}
   return (
        <div >
+         <h1 className=" font-bold text-gray-500 text-3xl text-center m-5"> List of Saved Urls </h1>
           {data && data.map((j, id) => (
                   <div className="data"
                     key={id}>
                      <Table>
                           <Thead >
                             <Tr>
-                              <Th><a href={"/Q/" + j.alias} className="text-green-400"> Name </a></Th>
+                              <Th><a href={"/Q/" + j.alias} className="text-green-500 hover:text-green-600 cursor-pointer"> Name </a></Th>
                               <Th>Alias</Th>
-                              <Th><a href={`${Href}` + j.alias} className="text-blue-500"> ShortLink </a></Th>
+                              <Th><a href={j.alias} className="text-blue-500 hover:text-blue-600 cursor-pointer"> ShortLink </a></Th>
                               <Th>Url</Th>
                             </Tr>
                           </Thead>

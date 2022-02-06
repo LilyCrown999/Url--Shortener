@@ -7,7 +7,7 @@
 node_modules
 
 src/tailwind.output.css
-
+=
 # testing
 /coverage
 

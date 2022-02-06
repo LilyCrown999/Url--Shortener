@@ -1,45 +1,56 @@
 
+import { useState, useEffect} from "react";
 
-import React from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
-import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
-export default function TableExample(props) {
-  return (
-    <Table>
-      <Thead>
-        <Tr>
-          <Th>Event</Th>
-          <Th>Date</Th>
-          <Th>Location</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        <Tr>
-          <Td>Tablescon</Td>
-          <Td>9 April 2019</Td>
-          <Td>East Annex</Td>
-        </Tr>
-        <Tr>
-          <Td>Capstone Data</Td>
-          <Td>19 May 2019</Td>
-          <Td>205 Gorgas</Td>
-        </Tr>
-        <Tr>
-          <Td>Tuscaloosa D3</Td>
-          <Td>29 June 2019</Td>
-          <Td>Github</Td>
-        </Tr>
-      </Tbody>
-    </Table>
-  );
-}
+const People = ({ match }) => {
+    const {
+      params: { alias },
+    } = match;
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState();
 
-// const Example = () => {
-//     return(
-//      <div>
-//      </div>
-//     )
-// }
+    
+    const Href = "https://uriurl.herokuapp.com/";
+    // const href = "http://localhost:5500/";
 
-// export default Example;
+  
+    useEffect(() => {
+      fetch(`${Href}Q/${alias}`, {})
+        .then((res) => res.json())
+        .then((response) => {
+          setData(response);
+          setIsLoading(false);
+        })
+        .catch((error) => console.log(error));
+    }, [alias]);
+
+    function res() {
+      return window.location = `${Href}${alias}`
+    }
+    // onLoad={res()}
+    //  let pageUrl =  window.location.href;
+     
+
+    return (
+      <>
+        {!isLoading && (
+          <div onLoad={res()}  className="m-6">
+              <b> Redirecting... </b>
+            <hr/> If the redirecting takes too long, click <a
+              className="
+               underline
+               cursor-pointer
+               text-blue-500 
+               hover:text-red-500"
+              href={data.url}>
+                 here
+            </a> . <br />
+             Redirecting to {data.url}
+          </div>
+        )}
+      </>
+    );
+  };
+
+
+  export default People;

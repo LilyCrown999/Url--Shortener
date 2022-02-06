@@ -24,7 +24,7 @@ const Url = ({ match }) => {
         .catch((error) => console.log(error));
     }, [alias]);
 
-  
+
     return (
       <>
         {!isLoading && (
@@ -43,12 +43,12 @@ const Url = ({ match }) => {
                 <span>Name:  <br /> {data.name}</span> <br />
                 <span>Alias:  <br /> {data.alias}</span> <br />
                 <span >Url:  <br /> {data.url} </span> <br />
-                <span>ShortLink:  <br /> {`${Href}` + data.alias}</span><br />
+                <span>ShortLink:  <br /> {"t-co.netlify.app/" + data.alias}</span><br />
                 <span>Creation Date:  <br /> {moment( data.createdAt).format('LLLL')}</span><br />
               </div>
 
               <a href="/" className="underline hover:text-red-500 text-blue-400" > Back to homepage </a> <br/>
-              <a href={`${Href}` + data.alias} className="underline hover:text-red-500 text-blue-400"> Go to Url </a>
+              <a href={`/${data.alias}`} className="underline hover:text-red-500 text-blue-400"> Go to Url </a>
 
            </div>
           </>
