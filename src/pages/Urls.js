@@ -20,7 +20,7 @@ const Urls = () => {
 
   return (
        <div >
-         <h1 className=" font-bold text-gray-500 text-3xl text-center m-5"> List of Saved Urls </h1>
+         <div className=" font-bold text-gray-500 text-3xl text-center m-5"> List of Saved Urls </div>
           {data && data.map((j, id) => (
                   <div className="data"
                     key={id}>

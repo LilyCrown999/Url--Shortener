@@ -30,12 +30,12 @@ const Url = ({ match }) => {
         {!isLoading && (
           <>
            <div>
-             <h1 className="
-                text-center text-4xl h1
+             <div className="
+                text-center text-4xl
                 p-4
                 border-t mr-0 
                 border-b border-l
-                font italic"> Url Inner information </h1>
+                font italic"> Url Inner information </div>
             <div className="
                   text-gray-500
                   text-center m-6
