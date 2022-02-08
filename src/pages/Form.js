@@ -51,6 +51,7 @@
 
     
     const handleSubmit = (e) => {
+
         // console.log(url);
         if (e.code === 'Enter' || e.code === 'Submit')
           e.preventDefault();
@@ -134,6 +135,7 @@
                         <input
                             name="url"
                             placeholder="https://google.com"
+                            required="true"
                             onChange={(e) => setUrl(e.target.value)}
                             type="url"
                             className="
@@ -189,6 +191,7 @@
                         sm:text-md
                         sm:p-3
                     "
+                    type="submit"
                     onSubmit={handleSubmit}
                     onClick={set}
                 >

@@ -18,6 +18,8 @@ const Urls = () => {
 
             }, [])
 
+            let href = "https://t-co.netlify.app/";
+
   return (
        <div >
          <div className=" font-bold text-gray-500 text-3xl text-center m-5"> List of Saved Urls </div>
@@ -37,7 +39,7 @@ const Urls = () => {
                             <Tr>
                               <Td>{j.name}</Td>
                               <Td>{j.alias}</Td>
-                              <Td>{`${Href}` + j.alias}</Td>
+                              <Td>{`${href}` + j.alias}</Td>
                               <Td>{j.url}</Td>
                             </Tr>
                           </Tbody>
